@@ -1,0 +1,113 @@
+<h1 class="mt3">Pipes<small>Angular</small></h1>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Variable</th>
+                    <th>Pipe</th>
+                    <th>Salida</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{nombre2}}</td>
+                    <td>capitalizado</td>
+                    <td>{{nombre2 | capitalizado:true}}</td>
+                </tr>
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>uppercase</td>
+                    <td>{{nombre | uppercase}}</td>
+                </tr>
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>lowercase</td>
+                    <td>{{nombre | lowercase}}</td>
+                </tr>
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>slice: 3</td>
+                    <td>{{nombre | slice:3}}</td>
+                </tr>
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>slice: 1-3</td>
+                    <td>{{nombre | slice:1:3}}</td>
+                </tr>
+                <tr>
+                    <td>{{array}}</td>
+                    <td>slice: 3-6</td>
+                    <td>{{array | slice:3:6}}</td>
+                </tr>
+                <tr>
+                    <td>{{PI}}</td>
+                    <td>number</td>
+                    <td>{{PI | number:'2.0-2'}}</td>
+                </tr>
+                <tr>
+                    <td>{{porcentaje}}</td>
+                    <td>percent: '2.0-2</td>
+                    <td>{{porcentaje | percent:'2.0-2'}}</td>
+                </tr>
+                <tr>
+                    <td>{{salario}}</td>
+                    <td>currency: EUR</td>
+                    <td>{{salario | currency:'EUR':'symbol':'.0-0'}}</td>
+                </tr>
+                <tr>
+                    <td>{{valorPromesa}}</td>
+                    <td>async</td>
+                    <td>{{valorPromesa | async}}</td>
+                </tr>
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td>date</td>
+                    <td>{{fecha | date}}</td>
+                </tr>
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td>date:medium</td>
+                    <td>{{fecha | date:'medium'}}</td>
+                </tr>
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>
+                        contraseña: {{activar}}
+                        <br>
+                        <button (click)="activar = !activar" class="btn btn-outline-primary">Ver contraseña</button>
+                    </td>
+                    <td>{{nombre | contrasena: activar}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Slice</h4><small></small>
+        <hr>
+        <ul class="list-group">
+            <li *ngFor="let item of array | slice:5:20" class="list-group-item">{{item}}</li>
+        </ul>
+
+        <h3 class="mt-4">JSON</h3>
+        <hr>
+        <div class="row mb-5">
+            <div class="col">
+                <pre>
+                {{heroe | json}}
+              </pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="mt-4">
+    Domseguro
+    <hr>
+    <div class="row mb-5">
+        <div class="col">
+            <iframe width="560" height="315" [src]="video | domseguro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+          </iframe>
+        </div>
+    </div>
+</h3>
